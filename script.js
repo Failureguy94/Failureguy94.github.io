@@ -1,7 +1,16 @@
+// ===== CONFIGURATION =====
+const CONFIG = {
+    github: {
+        username: 'Failureguy94'
+    },
+    competitive: {
+        codechef: 'sarthak14313',
+        codeforces: 'sarthak14313'
+    }
+};
+
 // ===== FETCH GITHUB PINNED REPOSITORIES =====
 async function fetchPinnedRepos() {
-    const username = 'Failureguy94';
-    
     // Since GitHub GraphQL API requires authentication for pinned repos,
     // we'll directly use the REST API to get popular repositories
     fetchUserRepos();
@@ -9,7 +18,7 @@ async function fetchPinnedRepos() {
 
 // Fallback: Fetch user repositories using REST API
 async function fetchUserRepos() {
-    const username = 'Failureguy94';
+    const username = CONFIG.github.username;
     const projectsContainer = document.getElementById('projects-container');
     
     try {
@@ -98,7 +107,7 @@ function getLanguageColor(language) {
 
 // ===== FETCH CODEFORCES STATS =====
 async function fetchCodeforcesStats() {
-    const username = 'sarthak14313';
+    const username = CONFIG.competitive.codeforces;
     
     try {
         const response = await fetch(`https://codeforces.com/api/user.info?handles=${username}`);
@@ -128,13 +137,14 @@ async function fetchCodeforcesStats() {
 
 // ===== FETCH CODECHEF STATS =====
 async function fetchCodeChefStats() {
-    const username = 'sarthak14313';
+    const username = CONFIG.competitive.codechef;
+    const profileUrl = `https://www.codechef.com/users/${username}`;
     
     // Note: CodeChef doesn't have a public API
     // Display a message encouraging users to visit the profile directly
-    document.getElementById('cc-rating').innerHTML = '<a href="https://www.codechef.com/users/sarthak14313" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>';
-    document.getElementById('cc-max-rating').innerHTML = '<a href="https://www.codechef.com/users/sarthak14313" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>';
-    document.getElementById('cc-stars').innerHTML = '<a href="https://www.codechef.com/users/sarthak14313" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>';
+    document.getElementById('cc-rating').innerHTML = `<a href="${profileUrl}" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>`;
+    document.getElementById('cc-max-rating').innerHTML = `<a href="${profileUrl}" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>`;
+    document.getElementById('cc-stars').innerHTML = `<a href="${profileUrl}" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>`;
 }
 
 // ===== SMOOTH SCROLL FOR NAVIGATION =====
