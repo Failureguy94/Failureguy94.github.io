@@ -3,44 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - CodeKick Project</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <title>Sarthak's Webtoon Portfolio 🌸</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Floating decorative elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1">✨</div>
+        <div class="shape shape-2">🌸</div>
+        <div class="shape shape-3">💫</div>
+        <div class="shape shape-4">🌟</div>
+        <div class="shape shape-5">🎀</div>
+    </div>
+
+    <!-- Header with profile -->
+    <header class="webtoon-header">
+        <div class="container">
+            <div class="profile-section">
+                <div class="profile-image-wrapper">
+                    <img id="profile-pic" src="https://github.com/Failureguy94.png" alt="Sarthak's Profile Picture" class="profile-pic">
+                    <div class="profile-ring"></div>
+                </div>
+                <div class="profile-info">
+                    <h1 class="title-main">Hi! I'm Sarthak 👋</h1>
+                    <p class="subtitle">Developer • Competitive Programmer • Creator</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Failureguy94" target="_blank" class="social-btn">
+                            <span>💻 GitHub</span>
+                        </a>
+                        <a href="https://www.codechef.com/users/sarthak14313" target="_blank" class="social-btn">
+                            <span>👨‍🍳 CodeChef</span>
+                        </a>
+                        <a href="https://codeforces.com/profile/sarthak14313" target="_blank" class="social-btn">
+                            <span>⚔️ Codeforces</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Brief introduction about yourself.</p>
+    <!-- About Section -->
+    <section id="about" class="section-webtoon">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me 🌈</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="card-icon">💡</div>
+                    <h3>Who am I?</h3>
+                    <p>A passionate developer who loves creating beautiful and functional web experiences. I combine code with creativity to build amazing projects!</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>What I do?</h3>
+                    <p>I solve complex problems through competitive programming and build innovative projects that make a difference.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🚀</div>
+                    <h3>My Goal?</h3>
+                    <p>To continuously learn, grow, and create impactful solutions while having fun along the way!</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <article>
-            <h3>CodeKick</h3>
-            <p>Description of the CodeKick project, its features, and technologies used.</p>
-            <a href="https://link-to-codekick-project.com">View Project</a>
-        </article>
-        <!-- You can add more projects here -->
+    <!-- Competitive Programming Hall of Fame -->
+    <section id="cp-hall-of-fame" class="section-webtoon cp-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Competitive Programming Hall of Fame 🏆</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="cp-container">
+                <div class="cp-card codechef-card">
+                    <div class="cp-header">
+                        <div class="cp-logo">👨‍🍳</div>
+                        <h3>CodeChef</h3>
+                    </div>
+                    <div class="cp-stats" id="codechef-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Username:</span>
+                            <span class="stat-value">sarthak14313</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Rating:</span>
+                            <span class="stat-value" id="cc-rating">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Max Rating:</span>
+                            <span class="stat-value" id="cc-max-rating">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Stars:</span>
+                            <span class="stat-value" id="cc-stars">Loading...</span>
+                        </div>
+                    </div>
+                    <a href="https://www.codechef.com/users/sarthak14313" target="_blank" class="cp-link">
+                        View Profile →
+                    </a>
+                </div>
+
+                <div class="cp-card codeforces-card">
+                    <div class="cp-header">
+                        <div class="cp-logo">⚔️</div>
+                        <h3>Codeforces</h3>
+                    </div>
+                    <div class="cp-stats" id="codeforces-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Username:</span>
+                            <span class="stat-value">sarthak14313</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Rating:</span>
+                            <span class="stat-value" id="cf-rating">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Max Rating:</span>
+                            <span class="stat-value" id="cf-max-rating">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Rank:</span>
+                            <span class="stat-value" id="cf-rank">Loading...</span>
+                        </div>
+                    </div>
+                    <a href="https://codeforces.com/profile/sarthak14313" target="_blank" class="cp-link">
+                        View Profile →
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: your.email@example.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">Your LinkedIn</a></p>
+    <!-- Pinned Projects Section -->
+    <section id="projects" class="section-webtoon">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects ⭐</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div id="projects-container" class="projects-grid">
+                <div class="project-card loading-card">
+                    <div class="loading-spinner"></div>
+                    <p>Loading amazing projects...</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="section-webtoon contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect! 💌</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="contact-content">
+                <p class="contact-text">Feel free to reach out for collaborations, opportunities, or just to say hi!</p>
+                <div class="contact-links">
+                    <a href="https://github.com/Failureguy94" class="contact-link github-link">
+                        <span class="link-icon">💻</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:sarthak@sarthak14313.me" class="contact-link email-link">
+                        <span class="link-icon">📧</span>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="webtoon-footer">
+        <div class="container">
+            <p>Made with 💖 by Sarthak</p>
+            <p class="footer-sub">Designed with a webtoon aesthetic ✨</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
