@@ -1,57 +1,10 @@
 // ===== FETCH GITHUB PINNED REPOSITORIES =====
 async function fetchPinnedRepos() {
     const username = 'Failureguy94';
-    const projectsContainer = document.getElementById('projects-container');
     
-    try {
-        // Using GitHub GraphQL API to fetch pinned repositories
-        const query = `
-        {
-            user(login: "${username}") {
-                pinnedItems(first: 6, types: REPOSITORY) {
-                    nodes {
-                        ... on Repository {
-                            name
-                            description
-                            url
-                            stargazerCount
-                            forkCount
-                            primaryLanguage {
-                                name
-                                color
-                            }
-                        }
-                    }
-                }
-            }
-        }`;
-
-        const response = await fetch('https://api.github.com/graphql', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ query })
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch pinned repos');
-        }
-
-        const data = await response.json();
-        
-        if (data.data && data.data.user && data.data.user.pinnedItems) {
-            const repos = data.data.user.pinnedItems.nodes;
-            displayProjects(repos);
-        } else {
-            // Fallback: fetch user's repositories
-            fetchUserRepos();
-        }
-    } catch (error) {
-        console.error('Error fetching pinned repos:', error);
-        // Fallback to REST API
-        fetchUserRepos();
-    }
+    // Since GitHub GraphQL API requires authentication for pinned repos,
+    // we'll directly use the REST API to get popular repositories
+    fetchUserRepos();
 }
 
 // Fallback: Fetch user repositories using REST API
@@ -175,18 +128,13 @@ async function fetchCodeforcesStats() {
 
 // ===== FETCH CODECHEF STATS =====
 async function fetchCodeChefStats() {
-    // Note: CodeChef doesn't have a public API, so we'll show placeholder values
-    // You can manually update these or use web scraping (not recommended for client-side)
-    
     const username = 'sarthak14313';
     
-    // Placeholder - these should be updated manually or through a backend service
-    document.getElementById('cc-rating').textContent = 'Visit Profile';
-    document.getElementById('cc-max-rating').textContent = 'Visit Profile';
-    document.getElementById('cc-stars').textContent = 'Visit Profile';
-    
-    // Optional: You could try to scrape the profile page, but this is not reliable
-    // and may be blocked by CORS. Better to use a backend proxy or manual updates.
+    // Note: CodeChef doesn't have a public API
+    // Display a message encouraging users to visit the profile directly
+    document.getElementById('cc-rating').innerHTML = '<a href="https://www.codechef.com/users/sarthak14313" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>';
+    document.getElementById('cc-max-rating').innerHTML = '<a href="https://www.codechef.com/users/sarthak14313" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>';
+    document.getElementById('cc-stars').innerHTML = '<a href="https://www.codechef.com/users/sarthak14313" target="_blank" style="color: inherit; text-decoration: underline;">View on CodeChef</a>';
 }
 
 // ===== SMOOTH SCROLL FOR NAVIGATION =====
