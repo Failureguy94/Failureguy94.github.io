@@ -1,0 +1,36 @@
+body {
+    background-color: #0d0d0d;
+    color: #00ffff; /* Turquoise color */
+    font-family: 'Geometric Font', sans-serif; /* Placeholder for geometric font */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    text-shadow: 0 0 10px #00ffff;
+}
+
+a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-shadow: 0 0 20px #00ffff;
+}
+
+.button {
+    background-color: #333;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #00ffff;
+    color: #0d0d0d;
+    box-shadow: 0 0 10px #00ffff;
+}
