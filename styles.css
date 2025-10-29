@@ -411,6 +411,23 @@ body {
     box-shadow: 0 8px 20px var(--shadow-medium);
 }
 
+.project-link-demo {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-mint), var(--primary-peach));
+    color: var(--white);
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-soft);
+}
+
+.project-link-demo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
 .loading-card {
     text-align: center;
     padding: 3rem;

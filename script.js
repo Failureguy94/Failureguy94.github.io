@@ -9,53 +9,63 @@ const CONFIG = {
     }
 };
 
+// ===== FEATURED PROJECTS =====
+// Hardcoded featured projects
+const FEATURED_PROJECTS = [
+    {
+        name: 'CodeKick',
+        description: 'A website that helps college freshers select their tech domain by providing pros, cons, and roadmaps based on their interests.',
+        url: 'https://github.com/Failureguy94/codekick',
+        homepage: 'https://codekick.lovable.app',
+        stargazerCount: 0,
+        forkCount: 0,
+        primaryLanguage: {
+            name: 'TypeScript',
+            color: '#2b7489'
+        }
+    },
+    {
+        name: 'ETHGlobal',
+        description: 'Blockchain project created at ETHGlobal 2025 hackathon in New Delhi. Built with Next.js and Solidity.',
+        url: 'https://github.com/Failureguy94/ETHGlobal',
+        homepage: null,
+        stargazerCount: 0,
+        forkCount: 0,
+        primaryLanguage: {
+            name: 'TypeScript',
+            color: '#2b7489'
+        }
+    },
+    {
+        name: 'Aarambh',
+        description: 'Google Solution Challenge 2025 project - A web application built with HTML, CSS, and JavaScript.',
+        url: 'https://github.com/Failureguy94/Aarambh',
+        homepage: 'https://aarambh-xcza.vercel.app/',
+        stargazerCount: 0,
+        forkCount: 1,
+        primaryLanguage: {
+            name: 'HTML',
+            color: '#e34c26'
+        }
+    },
+    {
+        name: 'CSES-Sheets',
+        description: 'Solutions to CSES Problem Set - competitive programming practice problems solved in C++.',
+        url: 'https://github.com/Failureguy94/CSES-Sheets',
+        homepage: null,
+        stargazerCount: 1,
+        forkCount: 0,
+        primaryLanguage: {
+            name: 'C++',
+            color: '#f34b7d'
+        }
+    }
+];
+
 // ===== FETCH GITHUB PINNED REPOSITORIES =====
 async function fetchPinnedRepos() {
-    // Since GitHub GraphQL API requires authentication for pinned repos,
-    // we'll directly use the REST API to get popular repositories
-    fetchUserRepos();
-}
-
-// Fallback: Fetch user repositories using REST API
-async function fetchUserRepos() {
-    const username = CONFIG.github.username;
-    const projectsContainer = document.getElementById('projects-container');
-    
-    try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-        
-        if (!response.ok) {
-            throw new Error('Failed to fetch repos');
-        }
-
-        const repos = await response.json();
-        
-        // Filter out forked repos and sort by stars
-        const filteredRepos = repos
-            .filter(repo => !repo.fork)
-            .sort((a, b) => b.stargazers_count - a.stargazers_count)
-            .slice(0, 6);
-        
-        displayProjects(filteredRepos.map(repo => ({
-            name: repo.name,
-            description: repo.description || 'No description available',
-            url: repo.html_url,
-            stargazerCount: repo.stargazers_count,
-            forkCount: repo.forks_count,
-            primaryLanguage: repo.language ? {
-                name: repo.language,
-                color: getLanguageColor(repo.language)
-            } : null
-        })));
-    } catch (error) {
-        console.error('Error fetching repos:', error);
-        projectsContainer.innerHTML = `
-            <div class="project-card">
-                <h3>Unable to load projects</h3>
-                <p>Please check out my <a href="https://github.com/${username}" target="_blank">GitHub profile</a> directly!</p>
-            </div>
-        `;
-    }
+    // Display the featured projects directly
+    displayProjects(FEATURED_PROJECTS);
 }
 
 // Display projects in the DOM
@@ -81,7 +91,10 @@ function displayProjects(repos) {
                 <span>⭐ ${repo.stargazerCount || 0}</span>
                 <span>🔀 ${repo.forkCount || 0}</span>
             </div>
-            <a href="${repo.url}" target="_blank" class="project-link">View Project →</a>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="${repo.url}" target="_blank" class="project-link">View Code →</a>
+                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link-demo">Live Demo →</a>` : ''}
+            </div>
         </div>
     `).join('');
 }
