@@ -1,6 +1,6 @@
 # Sarthak's Portfolio 🌸
 
-A cute webtoon/aesthetic themed portfolio website hosted at [sarthak14313.me](https://sarthak14313.me)
+A cute webtoon/aesthetic themed portfolio website built with React, hosted at [sarthak14313.me](https://sarthak14313.me)
 
 ## ✨ Features
 
@@ -14,7 +14,9 @@ A cute webtoon/aesthetic themed portfolio website hosted at [sarthak14313.me](ht
 
 ## 🚀 Technologies
 
-- Pure HTML5, CSS3, and JavaScript
+- **React 18** - Modern UI framework
+- **Create React App** - Build tooling
+- Pure CSS3 with custom animations
 - Google Fonts: Quicksand and Fredoka
 - GitHub REST API for repository data
 - Codeforces API for competitive programming stats
@@ -26,6 +28,30 @@ A cute webtoon/aesthetic themed portfolio website hosted at [sarthak14313.me](ht
 3. **CP Hall of Fame** - CodeChef and Codeforces achievements
 4. **Featured Projects** - Top 6 GitHub repositories
 5. **Contact** - Ways to connect
+
+## 🛠️ Development
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+```bash
+npm install
+```
+
+### Running locally
+```bash
+npm start
+```
+
+### Building for production
+```bash
+npm run build
+```
+
+### Deploying to GitHub Pages
+The build folder is automatically deployed to GitHub Pages. After building, the production files will be in the `build` directory.
 
 ---
 
