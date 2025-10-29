@@ -93,7 +93,7 @@ function displayProjects(repos) {
             </div>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                 <a href="${repo.url}" target="_blank" class="project-link">View Code →</a>
-                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link" style="background: linear-gradient(135deg, var(--primary-mint), var(--primary-peach));">Live Demo →</a>` : ''}
+                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link-demo">Live Demo →</a>` : ''}
             </div>
         </div>
     `).join('');
